@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
+import MovieItem from './MovieItem';
 
 export default class Search extends Component {
 	constructor(props){
@@ -31,6 +32,10 @@ export default class Search extends Component {
 	}
 
 	render(){
+		const resultList = this.state.results.map((movie, i) => {
+			return <MovieItem key={i} movie={movie} />
+		})
+
 		return ( 
 			<div>
 				<NavBar />
@@ -43,22 +48,17 @@ export default class Search extends Component {
 					    			 id="search"
 					    			 onChange={event => this.onInputChange(event.target.value)} />
 					    <input type="submit" onClick={this.search.bind(this)} className="btn btn-primary" />
-					    { this.state.movies ? 
-							this.state.results.map((movie, i) => {
-								return (
-									<div className="col-md-3 col-sm-6 thumbnail" key={i}>
-										<h4>{ movie.title }</h4>
-										<img src={movie.image || "https://s-media-cache-ak0.pinimg.com/736x/72/24/f6/7224f6d53614cedbf8cef516b705a555.jpg"} />
-										<div>Cast: { movie.actors }</div>
-										<div>Genre: { movie.genre }</div>
-										<div>Released: { movie.year }</div>
-										<div>Rating: { movie.rating }/10</div>
-									</div>
-										)}) :
-									<div>
-										<p>Enter Search Term</p>
-									</div>
-							}
+					    <div className="row text-center results">
+						{ resultList.length > 0 ? 
+							<div className="row">
+								{resultList}
+							</div>
+						:
+							<div>
+								<p>Enter Search Term</p>
+							</div>
+					}
+							</div>
 					  </div>
 					</div>
 				</form>
