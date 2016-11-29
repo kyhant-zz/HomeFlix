@@ -7,8 +7,13 @@ export default class Browse extends Component {
 		super(props)
 
 		this.state = {
-			movies: dbMovies
+			movies: []
 		}
+	}
+
+	componentWillMount(){
+		let movies = JSON.parse(localStorage.getItem('movies'))
+		this.setState({movies})
 	}
 
 	render(){
@@ -18,12 +23,12 @@ export default class Browse extends Component {
 				<h1>Browse Section</h1>
 				{ this.state.movies.map((movie, i) => {
 					return (
-						<div className="thumbnail" key={i}>
+						<div className="col-md-3 col-sm-6 review thumbnail" key={i}>
 							<h4>{ movie.title }</h4>
-							<div>{ movie.actors }</div>
-							<div>{ movie.genre }</div>
-							<div>{ movie.year }</div>
-							<div>{ movie.rating }</div>
+							<div>Cast: { movie.actors }</div>
+							<div>Genre: { movie.genre }</div>
+							<div>Released: { movie.year }</div>
+							<div>Rating: { movie.rating }/10</div>
 						</div>
 					)
 				})
