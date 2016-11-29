@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import dbMovies from '../../db.js';
 import NavBar from './NavBar';
 
 export default class Browse extends Component {
