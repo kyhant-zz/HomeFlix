@@ -21,8 +21,7 @@ export default class Update extends Component {
 			rating: movie.rating.value
 	  })	
 	  localStorage.setItem('movies', JSON.stringify(movies));
-	  console.log('LOCALSTORAGE', localStorage.movies)
-	  Router.browserHistory.push('/')
+	  browserHistory.push('/');
 	}
 
 	render(){
@@ -50,7 +49,7 @@ export default class Update extends Component {
 					    <label>Rating</label>
 					    <input type="Number" className="form-control" ref="rating" id="rating" placeholder="Rating" />
 					  </div>
-					  <button type="submit" id="addMovie" className="btn btn-primary addMovie"></button>
+					  <button type="submit" id="addMovie" className="btn btn-primary addMovie">Add Movie</button>
 					</form>
 			</div>
 		);

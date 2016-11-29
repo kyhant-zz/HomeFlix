@@ -5,13 +5,20 @@ import Browse from './Browse';
 import Search from './Search';
 import Update from './Update';
 
-export default function App() {
+export default class App extends Component {
+	constructor(props){
+		super(props)
+
+		this.state = { movies: [] }
+	}
+
+	render(){
   return (
-	  	<Router history={browserHistory}>
+  		<Router history={browserHistory}>
 	    	<Route path="/" component={Browse} />
 	    	<Route path="/search" component={Search} />
 	    	<Route path="/update" component={Update} />
 	    </Router>
-  );
+  )}
 }
 
