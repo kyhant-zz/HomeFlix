@@ -1,0 +1,12 @@
+a {
+	text-decoration: none;
+	color: white;
+}
+
+h1,form {
+	margin-top: 100px;
+}
+
+.new {
+	width:30%;
+}

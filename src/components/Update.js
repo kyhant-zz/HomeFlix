@@ -19,20 +19,17 @@ export default class Update extends Component {
 			genre: movie.genre.value,
 			year: movie.year.value,
 			rating: movie.rating.value
-	  })
-
+	  })	
 	  localStorage.setItem('movies', JSON.stringify(movies));
-
-	  // window.location = '/';
-
-	  console.log('SESSION STORAGE', localStorage.movies)
+	  console.log('LOCALSTORAGE', localStorage.movies)
+	  Router.browserHistory.push('/')
 	}
 
 	render(){
-		return ( 
+		return (
 			<div>
 				<NavBar />
-					<form onSubmit={this.addMovie.bind(this)}>
+					<form className="new" onSubmit={this.addMovie.bind(this)}>
 					  <div className="form-group">
 					    <label>Title</label>
 					    <input type="text" className="form-control" ref="title" id="title" placeholder="Title" />
@@ -53,7 +50,7 @@ export default class Update extends Component {
 					    <label>Rating</label>
 					    <input type="Number" className="form-control" ref="rating" id="rating" placeholder="Rating" />
 					  </div>
-					  <button type="submit" className="btn btn-primary"><Link to={`/`} className="pure-menu-link  l-box">Update Movie</Link></button>
+					  <button type="submit" id="addMovie" className="btn btn-primary addMovie"></button>
 					</form>
 			</div>
 		);

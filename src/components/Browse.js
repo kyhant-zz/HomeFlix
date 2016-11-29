@@ -20,19 +20,24 @@ export default class Browse extends Component {
 		return (
 			<div>
 				<NavBar />
-				<h1>Browse Section</h1>
-				{ this.state.movies.map((movie, i) => {
+				<div className="container browse">
+					<h1>Browse Section</h1>
+					{ this.state.movies ? 
+						this.state.movies.map((movie, i) => {
 					return (
-						<div className="col-md-3 col-sm-6 review thumbnail" key={i}>
+						<div className="col-md-3 col-sm-6 thumbnail" key={i}>
 							<h4>{ movie.title }</h4>
 							<div>Cast: { movie.actors }</div>
 							<div>Genre: { movie.genre }</div>
 							<div>Released: { movie.year }</div>
 							<div>Rating: { movie.rating }/10</div>
 						</div>
-					)
-				})
-			}
+					)}) :
+						<div>
+							<p>You havent added any movies!</p>
+						</div>
+				}
+				</div>
 			</div>
 		)
 	}

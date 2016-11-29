@@ -7,13 +7,11 @@ import Update from './Update';
 
 export default function App() {
   return (
-  	<div>
 	  	<Router history={browserHistory}>
 	    	<Route path="/" component={Browse} />
 	    	<Route path="/search" component={Search} />
 	    	<Route path="/update" component={Update} />
 	    </Router>
-    </div>
   );
 }
 
