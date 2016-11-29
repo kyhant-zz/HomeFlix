@@ -11,15 +11,28 @@ export default class Update extends Component {
 	addMovie(e){
 		e.preventDefault();
 		const movie = this.refs;
-		let movies = JSON.parse(localStorage.getItem('movies')) || []	
-
-		movies.push({ 
+		let movies = JSON.parse(localStorage.movies) || []	
+		let newMovie = true;
+		let updatedMovie = { 
 			title: movie.title.value,
 			actors: movie.actors.value,
 			genre: movie.genre.value,
 			year: movie.year.value,
 			rating: movie.rating.value
-	  })	
+	  };
+
+
+		movies.forEach((storedMovie, i) => {
+			if(storedMovie.title.toLowerCase() === movie.title.value.toLowerCase()) {
+				movies[i] = updatedMovie;
+				newMovie = false;
+			}
+		})
+
+		if(newMovie) {
+			movies.push(updatedMovie);
+		}
+
 	  localStorage.setItem('movies', JSON.stringify(movies));
 	  browserHistory.push('/');
 	}

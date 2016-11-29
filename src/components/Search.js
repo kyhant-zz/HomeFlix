@@ -18,7 +18,7 @@ export default class Search extends Component {
 	}
 
 	onInputChange(term){
-		this.setState({term: term})
+		this.setState({term})
 	}
 
 	search(e){
@@ -57,7 +57,7 @@ export default class Search extends Component {
 									<div>
 										<p>Enter Search Term</p>
 									</div>
-				}
+							}
 					  </div>
 					</div>
 				</form>
