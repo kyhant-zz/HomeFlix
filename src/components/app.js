@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import { Router, Route, browserHistory } from 'react-router';
 import NavBar from './NavBar';
 import Browse from './Browse';
+import Search from './Search';
+import Update from './Update';
 
-export default class App extends Component {
-  render() {
-    return (
-    	<div>
-    		<NavBar />
-      	<Browse />
-      </div>
-    );
-  }
+export default function App() {
+  return (
+  	<div>
+	  	<Router history={browserHistory}>
+	    	<Route path="/" component={Browse} />
+	    	<Route path="/search" component={Search} />
+	    	<Route path="/update" component={Update} />
+	    </Router>
+    </div>
+  );
 }
+

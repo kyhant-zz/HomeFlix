@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import dbMovies from '../../db.js';
+import NavBar from './NavBar';
 
 export default class Browse extends Component {
 	constructor(props){
@@ -13,6 +14,7 @@ export default class Browse extends Component {
 	render(){
 		return (
 			<div>
+				<NavBar />
 				<h1>Browse Section</h1>
 				{ this.state.movies.map((movie, i) => {
 					return (
