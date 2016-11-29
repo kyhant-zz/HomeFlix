@@ -17,10 +17,9 @@ export default class Browse extends Component {
 	}
 
 	render(){
-		const movieList = this.state.movies.map((movie, i) => {
-			return <MovieItem key={i} movie={movie} />
-		})
-		console.log('MOVIELIST', movieList)
+		const movieList = this.state.movies ? this.state.movies.map((movie, i) => {
+			return <MovieItem key={i} movie={movie} removeable={false} />
+		}) : 0
 		return (
 				<div>
 					<NavBar />
