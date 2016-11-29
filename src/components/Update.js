@@ -17,10 +17,10 @@ export default class Update extends Component {
 			title: movie.title.value,
 			actors: movie.actors.value,
 			genre: movie.genre.value,
+			image: movie.image.value,
 			year: movie.year.value,
 			rating: movie.rating.value
 	  };
-
 
 		movies.forEach((storedMovie, i) => {
 			if(storedMovie.title.toLowerCase() === movie.title.value.toLowerCase()) {
@@ -54,6 +54,11 @@ export default class Update extends Component {
 					    <label>Genre</label>
 					    <input type="text" className="form-control" ref="genre" id="genre" placeholder="Genre" />
 					  </div>
+					  <div className="form-group">
+					    <label>Image</label>
+					    <input type="text" className="form-control" ref="image" id="image" placeholder="Image URL" />
+					  </div>
+
 					  <div className="form-group">
 					    <label>Year</label>
 					    <input type="Number" className="form-control" ref="year" id="year" placeholder="Year" />

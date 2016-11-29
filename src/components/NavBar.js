@@ -19,9 +19,9 @@ export default class NavBar extends Component {
 
 		    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul className="nav navbar-nav navbar-right">
-		        <li><Link to={`/`} className="pure-menu-link  l-box">Browse</Link></li>
-		        <li><Link to={`search`} className="pure-menu-link  l-box">Search</Link></li>
-		        <li><Link to={`update`} className="pure-menu-link  l-box">Update</Link></li>
+		        <li><Link to={`/`}>Browse</Link></li>
+		        <li><Link to={`search`}>Search</Link></li>
+		        <li><Link to={`update`}>Update</Link></li>
 		      </ul>
 		    </div>
 		  </div>
