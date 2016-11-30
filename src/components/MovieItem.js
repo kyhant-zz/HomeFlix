@@ -1,17 +1,18 @@
+// Child component of Browse & Search
+
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
 export default class MovieItem extends Component {
 	constructor(props){
 		super(props)
-
-		this.state={selectedMovie: ''}
 	}
 
 	deleteMovie(e, title){
 		e.preventDefault()
+		// Grab movies from local storage, filter target movie out of movies array
+		// Save updated array to local storage
 		let movies = JSON.parse(localStorage.getItem('movies')) || [];
-
 		if(confirm('Are you sure you want to delete this video from your library?')){
 			movies = movies.filter(movie => {
 				return movie.title != title;
@@ -25,6 +26,8 @@ export default class MovieItem extends Component {
 
 	render(){
 		const title = this.props.movie.title;
+		// If on Search route show option to delete movie
+		// Else only show movie contents 
 		if(this.props.removeable) {
 			return (
 				<div className="col-md-3 thumbnail">
@@ -34,7 +37,7 @@ export default class MovieItem extends Component {
 					<div>Genre: { this.props.movie.genre }</div>
 					<div>Released: { this.props.movie.year }</div>
 					<div>Rating: { this.props.movie.rating }/10</div>
-					<button className="btn btn-danger" onClick={movie => this.deleteMovie(movie, title)}>Delete</button>
+					<button className="btn btn-danger btn-xs" onClick={movie => this.deleteMovie(movie, title)}>Delete</button>
 				</div>
 			)
 		} else {

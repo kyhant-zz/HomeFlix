@@ -1,5 +1,7 @@
 # HomeFlix
 
+Directory for your home movie collection
+
 ###Setup Instructions###
 
 ```

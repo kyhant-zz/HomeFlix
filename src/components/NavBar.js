@@ -5,7 +5,7 @@ import Search from './Search';
 export default class NavBar extends Component {
 	render(){
 		return (
-			<nav className="navbar navbar-inverse navbar-fixed-top inverse">
+			<nav className="navbar navbar-inverse navbar-fixed-top">
 		  <div className="container-fluid">
 		    <div className="navbar-header">
 		      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -16,7 +16,6 @@ export default class NavBar extends Component {
 		      </button>
 		      <a className="navbar-brand" href="/">HomeFlix</a>
 		    </div>
-
 		    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul className="nav navbar-nav navbar-right">
 		        <li><Link to={`/`}>Browse</Link></li>
